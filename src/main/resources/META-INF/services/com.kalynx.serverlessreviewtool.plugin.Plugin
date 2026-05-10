@@ -33,5 +33,4 @@ com.kalynx.serverlessreviewtool.plugins.defaults.highlighters.LuaSyntaxHighlight
 com.kalynx.serverlessreviewtool.plugins.defaults.highlighters.PowerShellSyntaxHighlighter
 com.kalynx.serverlessreviewtool.plugins.defaults.highlighters.IdlSyntaxHighlighter
 com.kalynx.serverlessreviewtool.plugins.defaults.highlighters.AdaSyntaxHighlighter
-com.kalynx.serverlessreviewtool.plugins.defaults.highlighters.RegexSyntaxHighlighter
 
