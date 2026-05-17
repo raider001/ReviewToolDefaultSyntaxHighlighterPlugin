@@ -39,7 +39,7 @@ public class AdaSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'[^']'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^']'");
     }
 
     @Override

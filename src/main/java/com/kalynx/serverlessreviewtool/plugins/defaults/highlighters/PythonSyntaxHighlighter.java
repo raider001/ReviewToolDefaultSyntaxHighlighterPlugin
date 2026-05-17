@@ -24,7 +24,7 @@ public class PythonSyntaxHighlighter extends SyntaxHighlighterPlugin {
     private static final Pattern KEYWORD_PATTERN =
         Pattern.compile("\\b(" + String.join("|", KEYWORDS) + ")\\b");
     private static final Pattern STRING_PATTERN =
-        Pattern.compile("\"\"\"[\\s\\S]*?\"\"\"|'''[\\s\\S]*?'''|\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        Pattern.compile("\"\"\"[^\"]*+(?:\"(?!\"\")[^\"]*+)*+\"\"\"|'''[^']*+(?:'(?!'')[^']*+)*+'''|\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     private static final Pattern COMMENT_PATTERN =
         Pattern.compile("#[^\n]*");
     private static final Pattern NUMBER_PATTERN =

@@ -31,12 +31,12 @@ public class SqlSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("--[^\n]*|/\\*[\\s\\S]*?\\*/");
+        return Pattern.compile("--[^\n]*|/\\*(?:[^*]++|\\*(?!/))*+\\*/");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("'([^'\\\\]|\\\\.)*'|\"([^\"\\\\]|\\\\.)*\"");
+        return Pattern.compile("'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'|\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"");
     }
 
     @Override

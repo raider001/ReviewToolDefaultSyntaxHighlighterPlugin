@@ -30,7 +30,7 @@ public class RubySyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'|`([^`\\\\]|\\\\.)*`");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'|`([^`\\\\]|\\\\.)*`");
     }
 
     @Override

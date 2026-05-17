@@ -14,12 +14,12 @@ public class HtmlSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("<!--([\\s\\S]*?)-->");
+        return Pattern.compile("<!--(?:[^-]++|-(?!->))*+-->");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override

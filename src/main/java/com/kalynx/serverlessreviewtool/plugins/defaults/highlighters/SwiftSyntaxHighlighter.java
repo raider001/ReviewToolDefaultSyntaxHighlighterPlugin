@@ -26,12 +26,12 @@ public class SwiftSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("//[^\\n]*|/\\*[\\s\\S]*?\\*/");
+        return Pattern.compile("//[^\\n]*|/\\*(?:[^*]++|\\*(?!/))*+\\*/");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"\"\"[\\s\\S]*?\"\"\"|\"([^\"\\\\]|\\\\.)*\"");
+        return Pattern.compile("\"\"\"[^\"]*+(?:\"(?!\"\")[^\"]*+)*+\"\"\"|\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"");
     }
 
     @Override

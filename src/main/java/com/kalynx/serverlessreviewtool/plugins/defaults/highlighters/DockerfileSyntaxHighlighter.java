@@ -28,7 +28,7 @@ public class DockerfileSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override

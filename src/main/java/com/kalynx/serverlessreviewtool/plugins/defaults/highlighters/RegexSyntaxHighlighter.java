@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 
 abstract class RegexSyntaxHighlighter extends SyntaxHighlighterPlugin {
 
+    private static final int MAX_HIGHLIGHTING_CHARS = 100_000;
+
     @Override
     public final String getFileExtension() {
         return extension();
@@ -20,6 +22,9 @@ abstract class RegexSyntaxHighlighter extends SyntaxHighlighterPlugin {
     @Override
     public final List<SyntaxToken> tokenize(String source) {
         if (source == null || source.isEmpty()) {
+            return List.of();
+        }
+        if (source.length() > MAX_HIGHLIGHTING_CHARS) {
             return List.of();
         }
 

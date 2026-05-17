@@ -25,7 +25,7 @@ public class YamlSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override

@@ -23,12 +23,12 @@ public class LuaSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("--\\[\\[[\\s\\S]*?\\]\\]|--[^\\n]*");
+        return Pattern.compile("--\\[\\[(?:[^\\]]++|\\](?!\\]))*+\\]\\]|--[^\\n]*");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\\[\\[[\\s\\S]*?\\]\\]|\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\\[\\[(?:[^\\]]++|\\](?!\\]))*+\\]\\]|\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override

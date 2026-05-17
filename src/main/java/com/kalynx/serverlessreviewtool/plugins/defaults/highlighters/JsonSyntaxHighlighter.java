@@ -20,7 +20,7 @@ public class JsonSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class JsonSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern variablePattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"(?=\\s*:)");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"(?=\\s*:)");
     }
 
     @Override

@@ -28,9 +28,9 @@ public class TypeScriptSyntaxHighlighter extends SyntaxHighlighterPlugin {
     private static final Pattern KEYWORD_PATTERN =
         Pattern.compile("\\b(" + String.join("|", KEYWORDS) + ")\\b");
     private static final Pattern STRING_PATTERN =
-        Pattern.compile("`([^`\\\\]|\\\\.)*`|\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        Pattern.compile("`([^`\\\\]|\\\\.)*`|\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     private static final Pattern COMMENT_PATTERN =
-        Pattern.compile("//[^\n]*|/\\*[\\s\\S]*?\\*/");
+        Pattern.compile("//[^\n]*|/\\*(?:[^*]++|\\*(?!/))*+\\*/");
     private static final Pattern NUMBER_PATTERN =
         Pattern.compile("\\b(0x[0-9A-Fa-f]+|0o[0-7]+|0b[01]+|\\d+\\.?\\d*([eE][+-]?\\d+)?)\\b");
     private static final Pattern ANNOTATION_PATTERN =

@@ -29,12 +29,12 @@ public class PowerShellSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("<#([\\s\\S]*?)#>|#[^\\n]*");
+        return Pattern.compile("<#(?:[^#]++|#(?!>))*+#>|#[^\\n]*");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override

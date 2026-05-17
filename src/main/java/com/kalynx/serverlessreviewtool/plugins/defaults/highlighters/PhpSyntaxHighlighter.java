@@ -28,12 +28,12 @@ public class PhpSyntaxHighlighter extends RegexSyntaxHighlighter {
 
     @Override
     protected Pattern commentPattern() {
-        return Pattern.compile("//[^\\n]*|#[^\\n]*|/\\*[\\s\\S]*?\\*/");
+        return Pattern.compile("//[^\\n]*|#[^\\n]*|/\\*(?:[^*]++|\\*(?!/))*+\\*/");
     }
 
     @Override
     protected Pattern stringPattern() {
-        return Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+        return Pattern.compile("\"[^\"\\\\]*+(?:\\\\.[^\"\\\\]*+)*+\"|'[^'\\\\]*+(?:\\\\.[^'\\\\]*+)*+'");
     }
 
     @Override
